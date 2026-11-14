@@ -216,7 +216,7 @@ html, body {
 }
 
 /* Each dropdown item */
-.restaurant-item {
+.place-item {
   background: #f9f9f9;
   border-radius: 9px;
   margin-bottom: 10px;
@@ -224,11 +224,11 @@ html, body {
   padding: 8px 10px;
   transition: transform 0.2s ease;
 }
-.restaurant-item:hover {
+.place-item:hover {
   transform: scale(1.02);
 }
 
-.restaurant-item summary {
+.place-item summary {
   font-weight: 500;
   outline: none;
 }
@@ -294,7 +294,7 @@ button.delete:hover {
   max-width: 260px;
 }
 
-/* --- Title (Restaurant Name) --- */
+/* --- Title (Place Name) --- */
 .custom-popup .popup-content .title {
   font-size: 1rem;
   font-weight: 600;

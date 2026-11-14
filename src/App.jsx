@@ -232,8 +232,8 @@ function App() {
     if (isDone) return;
 
 
-    const info = prompt("Name this place:");
-    if (!info) return;
+    const name = prompt("Name this place:");
+    if (!name) return;
 
     // Get the main/basic info fast
     const basicInfo = await getHumanReadableInfo(latlng.lat, latlng.lng);
@@ -243,7 +243,7 @@ function App() {
     const newPlace = {
       id: Date.now(),
       latlng,
-      info,
+      name,
       locationInfo: basicInfo,
       weather: null,
       wiki: null,
@@ -302,11 +302,11 @@ function App() {
   
   // Adds the edit and delete buttons next to the side bar elements
   const handleEdit = (id) => {
-    const newInfo = prompt("Rename this place: ")
-    if (newInfo){
+    const newName = prompt("Rename this place: ")
+    if (newName){
       setLocations(prev =>
         prev.map(loc =>
-          loc.id === id ? { ...loc, info: newInfo } : loc
+          loc.id === id ? { ...loc, name: newName } : loc
         )
       );
     }
@@ -380,7 +380,7 @@ function App() {
             
             <Popup className="custom-popup">
               <div className="popup-content">
-                <div className="title">{loc.info}</div>
+                <div className="title">{loc.name}</div>
                 
                 <div className="section">
                   <div className="info">
@@ -468,15 +468,15 @@ function App() {
           >
             <h3>Saved Places</h3>
 
-            <div className="restaurant-list">
+            <div className="place-list">
               {locations.length === 0 ? (
-                <p className="empty">Click on the map to add a favorite!!!</p>
+                <p className="empty">Click on the map to save a place!</p>
               ) : (
                 locations.map((loc) => (
-                  <div key={loc.id} className="restaurant-item">
+                  <div key={loc.id} className="place-item">
 
-                    <span className="restaurant-info">
-                      <strong style={{ fontSize: ".79rem" }}>{loc.info}</strong><br/>
+                    <span className="place-info">
+                      <strong style={{ fontSize: ".79rem" }}>{loc.name}</strong><br/>
                       {loc.locationInfo.city}, {loc.locationInfo.state}
                     </span>
 
